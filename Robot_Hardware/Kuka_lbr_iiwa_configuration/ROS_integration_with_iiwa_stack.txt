@@ -1,0 +1,13 @@
+We are following the setup of iiwa_stack (available from github at https://github.com/SalvoVirga/iiwa_stack)
+
+Everything is clearly documented in the WIkI of iiwa_stack. However, there is one thing that needs some attention.
+
+This configuration requires a change to the KONI network interface. To use iiwa_stack, the KONI interface (on the Realtime OS board) is assigned to Windows, and this will disable the use FRI (Fast Robot Interface) which is used by many other applications and designed as a default way to communicate through Java on Windows in the robot cabinet.
+
+Details are available from https://github.com/SalvoVirga/iiwa_stack/wiki/cabinet_setup
+
+To assign KONI to Windows, do
+C:\KUKA\Hardware\Manager\KUKAHardwareManager.exe -assign OptionNIC -os WIN
+
+To revert the change, execute:
+C:\KUKA\Hardware\Manager\KUKAHardwareManager.exe -assign OptionNIC -os RTOS 
